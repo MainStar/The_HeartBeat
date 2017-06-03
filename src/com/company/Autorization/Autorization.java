@@ -1,6 +1,6 @@
 package com.company.Autorization;
 
-import com.company.DataBase.DataBase;
+import com.company.DataBase.DataBasePasswords;
 import com.company.MainFrame.Main_Frame;
 import com.company.Users;
 
@@ -44,7 +44,7 @@ public class Autorization extends JFrame {
 
     public void login_frame(){
 
-        DataBase dataBase = new DataBase();
+        DataBasePasswords dataBasePasswords = new DataBasePasswords();
 
         setSize(400, 400);
         setVisible(true);
@@ -121,18 +121,13 @@ public class Autorization extends JFrame {
 
                 textPasword_1.setText("");
 
+                List<Users> list = new ArrayList<>();
+
                 try {
-
-                    dataBase.readPasswords();
-
+                    list = dataBasePasswords.readPasswords();
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
-
-
-
-                List<Users> list = new ArrayList<>();
-                list = dataBase.list;
 
                 System.out.println(list);
 
@@ -142,22 +137,28 @@ public class Autorization extends JFrame {
                     if (el.getName().equals(name)){
                         name_1 = el.getName();
                         pass = el.getPassword();
+
+                        if (password.equals(pass) && name.equals(name_1)){
+
+                            users.setName(textName.getText());
+                            System.out.println(users.getName());
+
+                            dispose();
+
+                            try {
+                                dataBasePasswords.closePassword();
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+
+                            main_frame.Button_Action();
+
+                        }
+                        else {
+                            label_Error.setText("Вы ввели не правильно логин либо пароль!");
+                        }
+
                     }
-                }
-
-                if (password.equals(pass) && name.equals(name_1)){
-
-                    users.setName(textName.getText());
-                    System.out.println(users.getName());
-
-                    dispose();
-
-
-                    main_frame.Button_Action();
-
-                }
-                else {
-                    label_Error.setText("Вы ввели не правильно логин либо пароль!");
                 }
             }
         });
@@ -180,6 +181,8 @@ public class Autorization extends JFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+
+
 
                 Registration registration = new Registration();
                 registration.registration();

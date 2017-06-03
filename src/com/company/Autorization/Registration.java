@@ -1,5 +1,6 @@
 package com.company.Autorization;
 
+import com.company.DataBase.DataBasePasswords;
 import com.company.MainFrame.Main_Frame;
 import com.company.Users;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 
 public class Registration extends JPanel {
@@ -35,6 +37,7 @@ public class Registration extends JPanel {
 
     public void registration(){
         Autorization autorization = new Autorization();
+        DataBasePasswords dataBasePasswords = new DataBasePasswords();
 
         autorization.panel.setVisible(false);
         autorization.panel_2.setVisible(false);
@@ -49,7 +52,6 @@ public class Registration extends JPanel {
         label_1 = new JLabel("Заполните поля ниже для регистрации: ");
         label_name = new JLabel("Логин: ");
         textName = new JTextField(25);
-        login = textName.getText();
 
         name = textName.getName();
         sc = new Users(name);
@@ -76,6 +78,13 @@ public class Registration extends JPanel {
                     if (pasword2.equals(pasword1)) {
 
                         password = text_pasword_2.getText();
+                        login = textName.getText();
+
+                        try {
+                            dataBasePasswords.writePasswords();
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
 
                         //dispose();
                         Main_Frame main_frame = new Main_Frame();

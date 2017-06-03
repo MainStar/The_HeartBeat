@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataBase {
+public class DataBasePasswords {
 
     public static Connection con;
     public static Statement stat;
@@ -53,14 +53,12 @@ public class DataBase {
 
         ps.executeUpdate();
 
-        stat.execute("INSERT INTO 'passwords' ('login', 'passwords') VALUES ('MainStar', '12qwaszx')");
+//        stat.execute("INSERT INTO 'passwords' ('login', 'passwords') VALUES ('MainStar', '12qwaszx')");
 
         System.out.println("Данные нового пользователя в базу данных внесенны!");
     }
 
-    public static void readPasswords() throws SQLException {
-
-
+    public List<Users> readPasswords() throws SQLException {
 
         Autorization autorization = new Autorization();
 
@@ -88,6 +86,7 @@ public class DataBase {
             list.add(users);
 
         }
+        return list;
     }
 
     public static void closePassword() throws SQLException{

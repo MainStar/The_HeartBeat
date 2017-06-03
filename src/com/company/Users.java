@@ -2,12 +2,38 @@ package com.company;
 
 public class Users {
 
-        static String name;
+        String name;
         int age = 0;
         int weight = 0;
         int hight = 0;
-        double percent_of_fatInOrganism;
+        int biceps = 0;
+        int legs = 0;
+        int taliya = 0;
         String password;
+
+    public int getBiceps() {
+        return biceps;
+    }
+
+    public void setBiceps(int biceps) {
+        this.biceps = biceps;
+    }
+
+    public int getLegs() {
+        return legs;
+    }
+
+    public void setLegs(int legs) {
+        this.legs = legs;
+    }
+
+    public int getTaliya() {
+        return taliya;
+    }
+
+    public void setTaliya(int taliya) {
+        this.taliya = taliya;
+    }
 
     public String getPassword() {
         return password;
@@ -49,21 +75,15 @@ public class Users {
         this.hight = hight;
     }
 
-    public double getPercent_of_fatInOrganism() {
-        return percent_of_fatInOrganism;
-    }
-
-    public void setPercent_of_fatInOrganism(double percent_of_fatInOrganism) {
-        this.percent_of_fatInOrganism = percent_of_fatInOrganism;
-    }
-
-    public Users(String name, int age, int weight, int hight, double percent_of_fatInOrganism) {
-        this.name = name;
-        this.age = age;
-        this.weight = weight;
-        this.hight = hight;
-        this.percent_of_fatInOrganism = percent_of_fatInOrganism;
-    }
+//    public Users(String name, int age, int weight, int hight, int biceps, int legs, int taliya) {
+//        this.name = name;
+//        this.age = age;
+//        this.weight = weight;
+//        this.hight = hight;
+//        this.biceps = biceps;
+//        this.legs = legs;
+//        this.taliya = taliya;
+//    }
 
     public Users(String name) {
         this.name = name;
