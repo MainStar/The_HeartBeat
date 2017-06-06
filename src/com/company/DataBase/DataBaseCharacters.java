@@ -2,6 +2,7 @@ package com.company.DataBase;
 
 
 import com.company.Autorization.Registration;
+import com.company.MainFrame.GetUsers;
 import com.company.MainFrame.PersonalCharacters;
 import com.company.Users;
 
@@ -30,15 +31,15 @@ public class DataBaseCharacters {
 
     public static void writeCharacters() throws SQLException{
 
-        Users users = new Users();
+        GetUsers getUsers = new GetUsers();
 
-        String name = users.getName();
-        int age = users.getAge();
-        int weight = users.getWeight();
-        int hight = users.getHight();
-        int biceps = users.getBiceps();
-        int legs = users.getLegs();
-        int taliya = users.getTaliya();
+        String name = getUsers.list.get(0).getName();
+        int age = getUsers.list.get(0).getAge();
+        int weight = getUsers.list.get(0).getWeight();
+        int hight = getUsers.list.get(0).getHight();
+        int biceps = getUsers.list.get(0).getBiceps();
+        int legs = getUsers.list.get(0).getLegs();
+        int taliya = getUsers.list.get(0).getTaliya();
 
 
 

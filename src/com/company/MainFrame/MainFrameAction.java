@@ -18,6 +18,7 @@ public class MainFrameAction extends JPanel {
     String name;
 
     Users users = new Users();
+    GetUsers getUsers = new GetUsers();
     PersonalCharacters personalCharacters = new PersonalCharacters();
     DataBasePasswords dataBasePasswords = new DataBasePasswords();
     List<Users> list = new ArrayList<>();
@@ -35,7 +36,8 @@ public class MainFrameAction extends JPanel {
 //            e.printStackTrace();
 //        }
 
-        name = users.getName();
+        list = getUsers.list;
+        name = list.get(0).getName();
 
         labelbackground = new JLabel(new ImageIcon("images/heartbeat2.png"));
         labelbackground.setBounds(0, 0, 900, 800);
@@ -44,13 +46,13 @@ public class MainFrameAction extends JPanel {
         JLabel label_nameSecond = new JLabel();
         label_nameSecond.setBounds(700, 30, 250, 25);
 
-//        if (name.equals("")){
-//            name.toString();
-//            label_nameSecond.setText("Ваше имя: Panteleon");
-//        }
-//        else {
-//            label_nameSecond.setText("Ваше имя: " + name);
-//        }
+        if (name.equals("")){
+            name.toString();
+            label_nameSecond.setText("Ваше имя: Panteleon");
+        }
+        else {
+            label_nameSecond.setText("Ваше имя: " + name);
+        }
 
         JLabel label_first_secondFrame = new JLabel("Для удовлетворенной работы с прораммой заполните личные данные!");
         label_first_secondFrame.setBounds(105, 150, 500, 20);

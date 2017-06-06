@@ -1,6 +1,7 @@
 package com.company.Autorization;
 
 import com.company.DataBase.DataBasePasswords;
+import com.company.MainFrame.GetUsers;
 import com.company.MainFrame.Main_Frame;
 import com.company.Users;
 
@@ -151,6 +152,10 @@ public class Autorization extends JFrame {
                                 e1.printStackTrace();
                             }
 
+                            GetUsers getUsers = new GetUsers();
+                            getUsers.getUser();
+                            getUsers.list.set(0, getUsers.list.get(0)).setName(name_1);
+                            getUsers.list.set(0, getUsers.list.get(0)).setPassword(password);
                             main_frame.Button_Action();
 
                         }

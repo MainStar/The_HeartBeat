@@ -47,7 +47,7 @@ public class PersonalCharacters extends JPanel {
     public void PersonalCharakters(){
 
         Main_Frame main_frame = new Main_Frame();
-        Users users = new Users();
+        GetUsers getUsers = new GetUsers();
 
         setLayout(null);
 
@@ -121,12 +121,19 @@ public class PersonalCharacters extends JPanel {
                 int legs = Integer.parseInt(text_nogi.getText());
                 int taliya = Integer.parseInt(text_taliya.getText());
 
-                users.setAge(age);
-                users.setWeight(weight);
-                users.setHight(hight);
-                users.setBiceps(biceps);
-                users.setLegs(legs);
-                users.setTaliya(taliya);
+
+                getUsers.list.set(0, getUsers.list.get(0)).setAge(age);
+                getUsers.list.set(0, getUsers.list.get(0)).setWeight(weight);
+                getUsers.list.set(0, getUsers.list.get(0)).setHight(hight);
+                getUsers.list.set(0, getUsers.list.get(0)).setBiceps(biceps);
+                getUsers.list.set(0, getUsers.list.get(0)).setLegs(legs);
+                getUsers.list.set(0, getUsers.list.get(0)).setTaliya(taliya);
+//                users.setAge(age);
+//                users.setWeight(weight);
+//                users.setHight(hight);
+//                users.setBiceps(biceps);
+//                users.setLegs(legs);
+//                users.setTaliya(taliya);
 
                 DataBaseCharacters dataBaseCharacters = new DataBaseCharacters();
                 try {
